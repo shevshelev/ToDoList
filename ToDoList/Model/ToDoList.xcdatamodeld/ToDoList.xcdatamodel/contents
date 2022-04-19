@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ToDoTask" representedClassName="ToDoTask" syncable="YES">
+        <attribute name="endDate" attributeType="Date" defaultDateTimeInterval="671623080" usesScalarValueType="NO"/>
+        <attribute name="explanation" attributeType="String" defaultValueString=""/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="startDate" attributeType="Date" defaultDateTimeInterval="671623140" usesScalarValueType="NO"/>
+        <attribute name="statusValue" attributeType="String" defaultValueString="created"/>
+        <attribute name="title" attributeType="String" defaultValueString=""/>
+    </entity>
+    <elements>
+        <element name="ToDoTask" positionX="-134.55859375" positionY="59.3359375" width="128" height="119"/>
+    </elements>
+</model>
