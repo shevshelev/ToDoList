@@ -7,9 +7,8 @@
 
 import UIKit
 
-class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class NewTaskViewController: UIViewController {
     
-    private var task = StorageManager.shared.createNewTask()
     private lazy var titleLabel: UILabel = {
         createLabel(with: "Task title:")
     }()
@@ -28,8 +27,8 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         textField.textAlignment = .right
         textField.clearButtonMode = .whileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.delegate = self
         textField.borderStyle = .roundedRect
+        textField.delegate = self
         return textField
     }()
     private lazy var startDP: UIDatePicker = {
@@ -43,7 +42,6 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = true
-        textView.delegate = self
         textView.layer.cornerRadius = 10
         textView.layer.borderWidth = 1
         textView.layer.borderColor = CGColor(gray: 0.5, alpha: 0.3)
@@ -61,7 +59,6 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         addSubViews()
         setupNavBar()
     }
@@ -121,7 +118,6 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     private func setupNavBar() {
         title = "Task List"
         navigationController?.navigationBar.prefersLargeTitles = true
-        print(#function)
     }
     
     private func addSubViews() {
@@ -132,6 +128,9 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         subViews.forEach {
             view.addSubview($0)
         }
+        startDP.addTarget(self, action: #selector(setStartDate), for: .valueChanged)
+        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+        endDP.addTarget(self, action: #selector(setEndDate), for: .valueChanged)
     }
     
     private func createLabel(with text: String) -> UILabel {
@@ -152,12 +151,60 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     
     @objc private func saveButtonPressed() {
-        StorageManager.shared.saveContext()
-        print("Save")
+        if titleTF.text != nil, !(titleTF.text?.isEmpty ?? false) {
+            createNewTask()
+            navigationController?.popViewController(animated: true)
+        } else {
+            showAlert(with: "Wrong name!", and: "Task needs name!")
+        }
     }
     
     @objc private func setStartDate() {
+        if startDP.date >= endDP.date {
+            startDP.date = Date()
+        }
+    }
+    
+    @objc private func setEndDate() {
+        if endDP.date <= startDP.date {
+            endDP.date = Date()
+        }
+    }
+    
+    private func createNewTask() {
+        let task = StorageManager.shared.createNewTask()
+        task.title = titleTF.text ?? ""
         task.startDate = startDP.date
+        task.endDate = endDP.date
+        task.explanation = descriptionTextView.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
 }
 
+// - MARK: UITextFieldDelegate
+
+extension NewTaskViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// - MARK: AlertControllers
+
+extension NewTaskViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "Ok!", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}

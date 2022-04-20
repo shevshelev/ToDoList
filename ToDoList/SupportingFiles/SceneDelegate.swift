@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-//        window?.rootViewController = UINavigationController(rootViewController: TaskListViewController())
-        window?.rootViewController = UINavigationController(rootViewController: NewTaskViewController())
+        window?.rootViewController = UINavigationController(rootViewController: TaskListViewController())
+//        window?.rootViewController = UINavigationController(rootViewController: NewTaskViewController())
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

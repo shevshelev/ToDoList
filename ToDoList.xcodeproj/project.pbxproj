@@ -18,6 +18,11 @@
 		B8C4D3C228081F8D00610E36 /* ToDoTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4D3C028081F8D00610E36 /* ToDoTask+CoreDataClass.swift */; };
 		B8C4D3C328081F8D00610E36 /* ToDoTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4D3C128081F8D00610E36 /* ToDoTask+CoreDataProperties.swift */; };
 		B8C4D3C528082EF600610E36 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4D3C428082EF600610E36 /* NewTaskViewController.swift */; };
+		B8F05E8C281015C300C64720 /* CompletedAndDeletedTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F05E8B281015C300C64720 /* CompletedAndDeletedTaskListViewController.swift */; };
+		B8F05E8E281022FD00C64720 /* TaskSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F05E8D281022FD00C64720 /* TaskSectionViewModel.swift */; };
+		B8F05E902810266700C64720 /* CompletedAndDeletedTaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F05E8F2810266700C64720 /* CompletedAndDeletedTaskListPresenter.swift */; };
+		B8F05E922810285200C64720 /* CompletedAndDeletedTaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F05E912810285200C64720 /* CompletedAndDeletedTaskListInteractor.swift */; };
+		B8F05E9428102E5700C64720 /* CompletedAndDeletedTaskListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F05E9328102E5600C64720 /* CompletedAndDeletedTaskListConfigurator.swift */; };
 		CC259FBAED5920E56677EB0B /* libPods-ToDoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756CD7FD240A1321EB888AF /* libPods-ToDoList.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +43,11 @@
 		B8C4D3C028081F8D00610E36 /* ToDoTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoTask+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B8C4D3C128081F8D00610E36 /* ToDoTask+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8C4D3C428082EF600610E36 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		B8F05E8B281015C300C64720 /* CompletedAndDeletedTaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedAndDeletedTaskListViewController.swift; sourceTree = "<group>"; };
+		B8F05E8D281022FD00C64720 /* TaskSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionViewModel.swift; sourceTree = "<group>"; };
+		B8F05E8F2810266700C64720 /* CompletedAndDeletedTaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedAndDeletedTaskListPresenter.swift; sourceTree = "<group>"; };
+		B8F05E912810285200C64720 /* CompletedAndDeletedTaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedAndDeletedTaskListInteractor.swift; sourceTree = "<group>"; };
+		B8F05E9328102E5600C64720 /* CompletedAndDeletedTaskListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedAndDeletedTaskListConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 				B8C4D3C028081F8D00610E36 /* ToDoTask+CoreDataClass.swift */,
 				B8C4D3C128081F8D00610E36 /* ToDoTask+CoreDataProperties.swift */,
 				B832514F2806E61200954AAA /* ToDoList */,
+				B8F05E8A2810155400C64720 /* CompletedAndDeletedTasks */,
+				B8C4D3BB28070AC500610E36 /* Storyboards */,
 				B832514E2806E61200954AAA /* Products */,
 				DAED7E5AD2FF3967D7D05A6A /* Pods */,
 				63350D803FA91069ABAE0EFC /* Frameworks */,
@@ -88,8 +100,7 @@
 				B83251672806F62C00954AAA /* Model */,
 				B8C4D3BC28070AE500610E36 /* SupportingFiles */,
 				B8C4D3BD28070B6400610E36 /* TaskList */,
-				B8C4D3BB28070AC500610E36 /* Storyboards */,
-				B8C4D3C428082EF600610E36 /* NewTaskViewController.swift */,
+				B8F05E892810145500C64720 /* NewTask */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -143,6 +154,26 @@
 				B8C4D3BE28070BAD00610E36 /* TaskListViewModel.swift */,
 			);
 			path = TaskList;
+			sourceTree = "<group>";
+		};
+		B8F05E892810145500C64720 /* NewTask */ = {
+			isa = PBXGroup;
+			children = (
+				B8C4D3C428082EF600610E36 /* NewTaskViewController.swift */,
+			);
+			path = NewTask;
+			sourceTree = "<group>";
+		};
+		B8F05E8A2810155400C64720 /* CompletedAndDeletedTasks */ = {
+			isa = PBXGroup;
+			children = (
+				B8F05E8B281015C300C64720 /* CompletedAndDeletedTaskListViewController.swift */,
+				B8F05E8F2810266700C64720 /* CompletedAndDeletedTaskListPresenter.swift */,
+				B8F05E912810285200C64720 /* CompletedAndDeletedTaskListInteractor.swift */,
+				B8F05E9328102E5600C64720 /* CompletedAndDeletedTaskListConfigurator.swift */,
+				B8F05E8D281022FD00C64720 /* TaskSectionViewModel.swift */,
+			);
+			path = CompletedAndDeletedTasks;
 			sourceTree = "<group>";
 		};
 		DAED7E5AD2FF3967D7D05A6A /* Pods */ = {
@@ -253,8 +284,13 @@
 				B8C4D3C328081F8D00610E36 /* ToDoTask+CoreDataProperties.swift in Sources */,
 				B83251552806E61200954AAA /* TaskListViewController.swift in Sources */,
 				B83251512806E61200954AAA /* AppDelegate.swift in Sources */,
+				B8F05E9428102E5700C64720 /* CompletedAndDeletedTaskListConfigurator.swift in Sources */,
 				B8C4D3B92806FD3500610E36 /* StorageManager.swift in Sources */,
+				B8F05E8E281022FD00C64720 /* TaskSectionViewModel.swift in Sources */,
+				B8F05E922810285200C64720 /* CompletedAndDeletedTaskListInteractor.swift in Sources */,
 				B8C4D3C528082EF600610E36 /* NewTaskViewController.swift in Sources */,
+				B8F05E8C281015C300C64720 /* CompletedAndDeletedTaskListViewController.swift in Sources */,
+				B8F05E902810266700C64720 /* CompletedAndDeletedTaskListPresenter.swift in Sources */,
 				B83251532806E61200954AAA /* SceneDelegate.swift in Sources */,
 				B8C4D3BF28070BAD00610E36 /* TaskListViewModel.swift in Sources */,
 				B8C4D3C228081F8D00610E36 /* ToDoTask+CoreDataClass.swift in Sources */,

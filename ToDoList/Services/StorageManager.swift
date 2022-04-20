@@ -45,7 +45,7 @@ final class StorageManager: StorageManagerProtocol {
     
     func createNewTask() -> ToDoTask {
         let task = ToDoTask(context: context)
-//        saveContext()
+        saveContext()
         return task
     }
     
