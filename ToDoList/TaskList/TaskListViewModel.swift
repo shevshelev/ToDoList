@@ -17,13 +17,7 @@ protocol TaskListViewModelProtocol {
 class TaskListViewModel: TaskListViewModelProtocol {
     var taskList = BehaviorRelay<[ToDoTask]>(value: [])
     
-    
-    
     private let storageManager: StorageManagerProtocol = StorageManager.shared
-
-//    var taskList: BehaviorRelay<[ToDoTask]> {
-//        BehaviorRelay<[ToDoTask]>(value: fetchIncompleteTasks())
-//    }
     
     func fetchIncompleteTasks() {
         let tasks = storageManager.fetchData().filter { $0.status == .created }
